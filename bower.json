@@ -1,7 +1,7 @@
 {
-	"name"			: "jquery-fittext"
+	"name"			: "jquery-squeezetext"
 	, "version"		: "0.1.0"
-	, "main"		: "src/jquery.fittext.js"
+	, "main"		: "src/jquery.squeezetext.js"
 	, "dependencies": {
 		"jquery"	: ">=1.10.0"
 	}

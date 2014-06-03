@@ -6,7 +6,7 @@
 
 ( function( $, window, document, undefined ) {
 
-	function fitText( $el ) {
+	function squeezeText( $el ) {
 
 		// Get paddings as they need to be removed from $el.width() to get it's effective width
 		var paddings = parseFloat( $el.css('padding-left') ) + parseFloat( $el.css( 'padding-right' ) )
@@ -63,7 +63,7 @@
 
 
 
-	$.fn.fitText = function() {
+	$.fn.squeezeText = function() {
 
 		// Use empty object as first argument or we will be changing $.srcset
 		//options = $.extend( {}, $.srcset, opts || {} );
@@ -74,7 +74,7 @@
 			// original size before reducing it or text will get tinier every time
 			$( this ).data( 'originalFontSize', parseFloat( $( this ).css( 'font-size' ) ) );
 
-			fitText( $( this ) );
+			squeezeText( $( this ) );
 	
 		} );
 
@@ -98,8 +98,8 @@
 					var visibility = $( this ).css( 'visibility' );
 					$( this ).css( 'visibility', 'hidden' );
 
-					// fitText
-					fitText( $( this ) );
+					// squeeze text
+					squeezeText( $( this ) );
 
 					// Re-add transitions and visibility
 					$( this ).css( cssTransitionCommand, trans );
@@ -116,6 +116,5 @@
 	}
 
 
+} )( window.jQuery || window.Zepto || window.$, window, document );
 
-
-} )( window.jQuery, window, document );
