@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--<link rel="stylesheet" href="style.css" />-->
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<style>
+			div {
+				border: 1px solid yellow;
+				font-family: Helvetica, Arial, sans-serif;
+				font-size: 4em;
+				height: 100px;
+				width: 100px;
+				float: left;
+				margin: 100px;
+			}
+
+			.animated {
+				-webkit-transition: all 1s;
+			}
+
+		</style>
+
+	</head>
+	<body>
+
+		<!-- No fit -->
+		<div>
+			There's some text.
+		</div>
+
+		<!-- Fit width -->
+		<div class="fit-width">
+			There's some text.
+		</div>
+
+		<div class="fit-width">
+			Shrt.
+		</div>
+
+
+		<!-- Fit height and widht -->
+		<div class="fit-height" style="height: 40px">
+			S
+		</div>
+
+		<div class="fit-height" style="height: 40px">
+			Shit is long gone.
+		</div>
+
+
+		<!-- ONLY height -->
+		<div class="fit-only-height" style="height: 40px">
+			Sgitiput
+		</div>
+
+
+
+		<!-- With animation -->
+		<div class="fit-width animated">
+			Shrt. And Long. And Everything.
+		</div>
+
+
+
+	</body>
+
+	<script src="../js/vendor/bower_components/jquery/dist/jquery.js"></script>
+	<script src="../src/jquery.squeezetext.js"></script>
+
+	<script>
+		$( '.fit-width' ).squeezeText();
+		$( '.fit-height' ).squeezeText( { 'squeezeHeight': true } );
+		$( '.fit-only-height' ).squeezeText( { 'squeezeHeight': true, 'squeezeWidth': false } );
+	</script>
+
+</html>
