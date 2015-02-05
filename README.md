@@ -1,4 +1,4 @@
-squeezetext
+squeezeText
 ======
 
 Squeezes text into it's parent HTML element. Will limit the text's height to one single line!
@@ -8,7 +8,7 @@ Squeezes text into it's parent HTML element. Will limit the text's height to one
 Download the library [manually](https://github.com/joinbox/squeezetext) or through bower: 
 
 ```bash
-$ bower install squeezetext
+$ bower install squeezeText
 ```
 
 ## Requirements
@@ -19,7 +19,7 @@ Requres jQuery or Zepto.
 
 ```javascript
 $( function() {
-    $( '.selector' ).squeezetext();
+    $( '.selector' ).squeezeText();
 }
 ```
 
@@ -35,5 +35,5 @@ var options = {
     squeezeWidth     : false
     , squeezeHeight  : true
 }
-$( '.selector' ).squeezetext( options );
+$( '.selector' ).squeezeText( options );
 ```
