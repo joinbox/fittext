@@ -8,7 +8,7 @@ Squeezes text into it's parent HTML element. Will limit the text's height to one
 Download the library [manually](https://github.com/joinbox/squeezetext) or through bower: 
 
 ```bash
-$ bower install squeezeText
+$ bower install squeezetext
 ```
 
 ## Requirements
