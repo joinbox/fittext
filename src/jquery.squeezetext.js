@@ -48,7 +48,7 @@
 
 		// Calculate factor that font size needs to be reduced by
 		// (Divide width available by width that text takes)
-		console.error( '%o : %o', $el.eq(0), $el.get( 0 ).scrollWidth );
+		//console.error( '%o : %o', $el.eq(0), $el.get( 0 ).scrollWidth );
 
 		var widthFactor = heightFactor = 1;
 
