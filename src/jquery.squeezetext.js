@@ -50,7 +50,8 @@
 		// (Divide width available by width that text takes)
 		//console.error( '%o : %o', $el.eq(0), $el.get( 0 ).scrollWidth );
 
-		var widthFactor = heightFactor = 1;
+		var widthFactor			= 1
+			, heightFactor		= 1;
 
 		if( options.squeezeWidth ) {
 			widthFactor = ( $el.width() - horizontalPaddings ) / $el.get( 0 ).scrollWidth;
@@ -68,11 +69,19 @@
 			.css( 'white-space', originalWhiteSpace )
 			.css( getVendorPrefix() + "hyphens", originalHyphens );
 
-		// Get current font size
-		var currentFontSize = $el.data( 'originalFontSize' );
 
-		// Update font size
-		$el.css( 'font-size', Math.floor( Math.min( heightFactor, widthFactor ) * currentFontSize ) );
+
+
+		// Update font size – but only if 
+		if( !isNaN( widthFactor ) && !isNaN( heightFactor ) ) {
+	
+			// Get current font size
+			var currentFontSize = $el.data( 'originalFontSize' );
+	
+			$el.css( 'font-size', Math.floor( Math.min( heightFactor, widthFactor ) * currentFontSize ) );
+	
+		}
+
 
 
 		//
@@ -163,7 +172,7 @@
 
 		return $( this );
 
-	}
+	};
 
 
 } )( window.jQuery || window.Zepto || window.$, window, document );
