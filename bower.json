@@ -1,10 +1,7 @@
 {
-	"name"			: "jquery-squeezetext"
-	, "version"		: "0.4.0"
-	, "main"		: "src/jquery.squeezetext.js"
-	, "dependencies": {
-		"jquery"	: ">=1.10.0"
-	}
+	"name"			: "squeezetext"
+	, "version"		: "0.5.0"
+	, "main"		: "src/squeezetext.js"
 	, "ignore"		: [
 		"tests"
 		, "js"

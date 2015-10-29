@@ -29,53 +29,64 @@
 	<body>
 
 		<!-- No fit -->
-		<div>
-			There's some text.
+		<div style="font-size:27px;">
+			There's some text – that does not fit at all.
 		</div>
 
-		<!-- Fit width -->
-		<div class="fit-width">
-			There's some text.
-		</div>
-
-		<div class="fit-width">
-			Shrt.
-		</div>
 
 
 		<!-- Fit height and widht -->
-		<div class="fit-height" style="height: 40px">
+		<div data-squeeze>
+			Shrt.
+		</div>
+		<div style="height: 40px" data-squeeze>
 			S
 		</div>
 
-		<div class="fit-height" style="height: 40px">
-			Shit is long gone.
+
+		<!-- Padding -->
+		<div style="padding: 10px;" data-squeeze data-squeeze-height="false">
+			With padding.
 		</div>
 
 
+		<!-- ONLY width -->
+		<div style="height: 5px;width:200px;" data-squeeze data-squeeze-height="false">
+			Only fit to the width.
+		</div>
+
+
+
+
 		<!-- ONLY height -->
-		<div class="fit-only-height" style="height: 40px">
-			Sgitiput
+		<div style="height: 60px; widht:10px;" data-squeeze data-squeeze-width="false">
+			Only fit height.
 		</div>
 
 
 
 		<!-- With animation -->
-		<div class="fit-width animated">
-			Shrt. And Long. And Everything.
+		<div class="animated" style="width:10%" data-squeeze>
+			Animated Text. Relative width.
 		</div>
 
 
 
 	</body>
 
-	<script src="../js/vendor/bower_components/jquery/dist/jquery.js"></script>
-	<script src="../src/jquery.squeezetext.js"></script>
+	<script src="../src/squeezetext.js"></script>
 
 	<script>
-		$( '.fit-width' ).squeezeText();
-		$( '.fit-height' ).squeezeText( { 'squeezeHeight': true } );
-		$( '.fit-only-height' ).squeezeText( { 'squeezeHeight': true, 'squeezeWidth': false } );
+
+		// Test manual squeezeText call
+		setTimeout( function() {
+			var el = document.createElement( 'div' );
+			el.innerHTML = 'Dynamically appended DIV';
+			el.classList.add( 'fit-width' );
+			document.getElementsByTagName( 'body' )[ 0 ].appendChild( el );
+			window.squeezeText( el );
+		}, 200 );
+
 	</script>
 
 </html>

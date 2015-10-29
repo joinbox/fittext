@@ -1,7 +1,7 @@
 squeezeText
 ======
 
-Squeezes text into it's parent HTML element. Will limit the text's height to one single line!
+Squeezes text into it's parent HTML element. Pure vanilla JavaScript solution, no jQuery needed.
 
 ## Installation
 
@@ -13,27 +13,35 @@ $ bower install squeezetext
 
 ## Requirements
 
-Requres jQuery or Zepto. 
+None since v0.5 (previously jQuery or Zepto)
 
 ## Use
 
-```javascript
-$( function() {
-    $( '.selector' ).squeezeText();
-}
+### Initialization
+
+Just add the `data-squeeze` attribute to the elements whose text should fit the parent element: 
+
+```html
+<div data-squeeze style="width:50px;font-size:100px;">
+  This text is way too big
+</div>
 ```
 
-## Configuration
+All elements with a `data-squeeze` attribute will automatically be squeezed when the DOM is ready. 
 
-By default, the plugin only fits the text to the parent element's **width**. There are two options available to change that behaviour: 
-
-- squeezeWidth (default true)
-- squeezeHeight (default false)
+To call squeezeText manually (e.g. when adding elements to the DOM after it has been ready), use
 
 ```javascript
-var options = {
-    squeezeWidth     : false
-    , squeezeHeight  : true
-}
-$( '.selector' ).squeezeText( options );
+  var elements = document.querySelectorAll( '.new-element' );
+  window.squeezeText( elements );
 ```
+
+You may call `window.squeezeText` with
+
+- no argument (will be applied to all elements with `data-squeeze`)
+- a [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) (will be applied to all elements passed)
+- an [Element](https://developer.mozilla.org/en-US/docs/Web/API/element) (will be applied to the element passed)
+
+### Options
+
+You may want to make a text only fit the width **or** height of its parent element. To do so, either use `data-squeeze-width="false"` or `data-squeeze-height="false"` on the element that has the `data-squeeze` attribute.
