@@ -195,7 +195,7 @@
 
 	function windowResizeHandler() {
 		window.squeezeText.elements.forEach( function( element ) {
-			squeezeText( element );
+			squeezeElement( element );
 		} );
 	}
 
@@ -226,12 +226,19 @@
 	window.squeezeText.elements = [];
 
 
+
 	// Automatically call squeezeText when DOM's ready
-	document.addEventListener( 'DOMContentLoaded', function() {
-		window.squeezeText();
-		window.addEventListener( 'resize', function() {
-			startWindowResizeTimer();
+	if( document.readyState === 'complete' || document.readyState === 'interactive' ) {
+			window.squeezeText();
+	}
+	else {
+		document.addEventListener( 'DOMContentLoaded', function() {
+			window.squeezeText();
 		} );
+	}
+
+	window.addEventListener( 'resize', function() {
+		startWindowResizeTimer();
 	} );
 
 
