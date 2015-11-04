@@ -55,14 +55,12 @@
 	*/
 	function squeezeElement( element ) {
 
+		console.log( 'SqueezeText: Squeeze text in %o', element );
+
 		// Store original font size
 		if( !element.hasAttribute( 'data-squeeze-original-font-size' ) ) {
 			element.setAttribute( 'data-squeeze-original-font-size', window.getComputedStyle( element ).fontSize );
 		}
-
-
-		console.log( 'SqueezeText: Squeeze text in %o', element );
-
 
 		// Store original values
 		var originalWhiteSpace		= element.style.whiteSpace
@@ -157,9 +155,14 @@
 
 		elements = elements || getSqueezeElements();
 
-		// Make sure single elements are handled as well
-		if( !elements.length ) {
+		// Single HTML element passed
+		if( elements instanceof HTMLElement ) {
 			elements = [ elements ];
+		}
+
+		// There's no element to squeeze-text
+		if( !elements.length ) {
+			return;
 		}
 
 
