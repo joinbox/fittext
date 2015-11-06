@@ -1,6 +1,5 @@
 {
 	"name"			: "squeezetext"
-	, "version"		: "0.6.0"
 	, "main"		: "src/squeezetext.js"
 	, "ignore"		: [
 		"tests"
