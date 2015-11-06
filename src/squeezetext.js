@@ -8,11 +8,11 @@
 
 
 	/**
-	* Returns all elements in body with [data-squeeze]
+	* Returns all elements in body with [data-squeeze-text]
 	*/
 	function getSqueezeElements() {
 
-		var elements = document.querySelectorAll( '[data-squeeze]' );
+		var elements = document.querySelectorAll( '[data-squeeze-text]' );
 		console.log( 'SqueezeText: Squeeze elements %o', elements );
 		return elements;
 
@@ -168,7 +168,15 @@
 
 		// Add all elements to squeezeText.elements
 		[].forEach.call( elements, function( element ) {
-			window.squeezeText.elements.push( element );
+
+			// Make sure we store element only once (duplicates may happen if squeezetext is initialized
+			// multiple times)
+			// Every element only needs to be squeezed once when window is being resized.
+
+			if( window.squeezeText.elements.indexOf( element ) === -1 ) {
+				window.squeezeText.elements.push( element );
+			}
+	
 		} );
 
 
@@ -214,7 +222,7 @@
 	* Make API public
 	*
 	* If elements is passed, squeezes text for elements, else for all elements in DOM 
-	* that have a data-squeeze attribute
+	* that have a data-squeeze-text attribute
 	*
 	* By default squeezes to fit height and width. Set data-squeeze-height="false" or 
 	* data-squeeze-width="false" to prevent squeezing width or height
