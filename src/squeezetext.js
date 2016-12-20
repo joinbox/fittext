@@ -13,7 +13,7 @@
 	function getSqueezeElements() {
 
 		var elements = document.querySelectorAll( '[data-squeeze-text]' );
-		console.log( 'SqueezeText: Squeeze elements %o', elements );
+		//console.log( 'SqueezeText: Squeeze elements %o', elements );
 		return elements;
 
 	}
@@ -55,7 +55,7 @@
 	*/
 	function squeezeElement( element ) {
 
-		console.log( 'SqueezeText: Squeeze text in %o', element );
+		//console.log( 'SqueezeText: Squeeze text in %o', element );
 
 		// Store original font size
 		if( !element.hasAttribute( 'data-squeeze-original-font-size' ) ) {
